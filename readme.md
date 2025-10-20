@@ -125,7 +125,7 @@ python generate_all.py --kappa-sweep   # Optional κ-sweep plots
 
 ---
 
-## 🧩 Sanity Checks
+## Sanity Checks
 
 Run:
 
@@ -137,24 +137,23 @@ This prints **state-memory traces** showing that the state encodes the last-K jo
 
 ---
 
-## 🧠 How to Cite
+## How to Cite
 
 If you use or extend this package, please cite:
 
-> Khan, A. (2025). *Platform Attention — Replication Package.*  
-> GitHub: https://github.com/yourusername/platform_attention
+> Huang, Y., Khan, A. (2025). *Platform Attention — Replication Package.*  
+> GitHub: https://github.com/shkzien/platform_attention
 
-(If archived on Zenodo, replace the URL with the DOI.)
 
 ---
 
-## 📝 License
+## License
 
 Recommended license: **MIT License**
 
 ```
 MIT License
-Copyright (c) 2025 Asif Khan
+Copyright (c) 2025 Yi-Ting Huang and Asif Khan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -177,18 +176,6 @@ furnished to do so, subject to the following conditions:
 | **κ Sweep (optional)** | `results/*.pdf` / `.png` | Threshold plots for steering intensity (κ*) |
 
 ---
-
-## 🧭 Versioning
-
-Tag the final replication release before submission:
-
-```bash
-git tag -a v1.0 -m "Replication release"
-git push origin v1.0
-```
-
----
-
-**Author:** Asif Khan  
+**Author:** Yi-Ting Huang and Asif Khan  
 **Affiliation:** Purdue University  
 **Year:** 2025
