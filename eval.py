@@ -3,7 +3,7 @@ from typing import List, Tuple
 from joblib import Parallel, delayed
 from .env import AttentionEnv, SimParams
 from .agents import GreedyPolicy, QLearner, AgentParams
-from .io import load_json, ckpt_paths, ensure_dir, save_json
+from .io_utils import load_json, ckpt_paths, ensure_dir, save_json
 
 # ---------- Static benchmarks using the same primitives ----------
 def _static_best_response(env: AttentionEnv, rival_price: float, i: int, theta: float) -> float:

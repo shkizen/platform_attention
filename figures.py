@@ -1,6 +1,6 @@
 import numpy as np, matplotlib.pyplot as plt, os
 from .eval import impulse_response_avg_once, static_monopoly_price, static_nash_price
-from .io import ensure_dir, save_json
+from .io_utils import ensure_dir, save_json
 
 import os
 import numpy as np

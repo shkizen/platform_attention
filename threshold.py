@@ -5,7 +5,7 @@ from .env import SimParams, AttentionEnv
 from .agents import AgentParams
 from .train import TrainParams, Trainer
 from .eval import load_greedy_agents, static_nash_price
-from .io import ensure_dir
+from .io_utils import ensure_dir
 
 def _longrun_markup(env: AttentionEnv, greedy_agents, start_state,
                     burn: int = 2000, T: int = 6000):

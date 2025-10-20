@@ -21,8 +21,6 @@ This repository replicates and extends Calvano-style algorithmic pricing with:
 Install dependencies:
 
 ```bash
-pip install -r requirements.txt
-# or manually:
 pip install numpy pandas matplotlib joblib
 ```
 
@@ -37,9 +35,11 @@ platform_attention/
 ├── env.py             # Environment: attention weights, logit shares, AR(1) shocks
 ├── eval.py            # Static benchmarks: Nash & Monopoly prices, policy loaders
 ├── io.py              # I/O utilities (ensure_dir, tag_from_params)
+├── irplot.py          # Generate Impulse Response Plots        
 ├── train.py           # Trainer and training parameters (idempotent)
 ├── tables.py          # (optional) legacy table writers
 ├── threshold.py       # (optional) threshold estimation for κ*
+├── markup_plot.py     # Generate Long Run Markup vs Attention Intensity Plots
 ├── memory_check.py    # κ-sweep & state-memory verification
 ├── generate_all.py    # ← One-shot generator for all outputs (tables & volatility)
 ├── results/           # Auto-generated tables and plots (ignored by git)
@@ -72,6 +72,8 @@ python generate_all.py --table2        # Long-run markup & mean price by n
 python generate_all.py --table3        # Bertrand & Monopoly prices by n
 python generate_all.py --volatility    # Profit-gain volatility (shock vs no shock)
 python generate_all.py --kappa-sweep   # Optional κ-sweep plots
+python generate_all.py --irplot        # Generate IR plots for n ∈ {2,3}, K ∈ {1,2}
+python generate_all.py --markup_plot   # Long Run Markup vs Attention Intensity Plots for n ∈ {2,5}, K = 1 with observed and unobserved shocks
 ```
 
 ---

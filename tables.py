@@ -1,5 +1,5 @@
 import pandas as pd, os
-from .io import ensure_dir
+from .io_utils import ensure_dir
 
 def write_kappa_star_table(df: pd.DataFrame, kstar: float, out_dir: str, tag: str):
     ensure_dir(out_dir)
