@@ -6,6 +6,7 @@ import os
 import argparse
 import numpy as np
 import pandas as pd
+import runpy
 
 from env import SimParams, AttentionEnv
 from agents import AgentParams
@@ -90,7 +91,7 @@ def build_table2(ns=(2,3,4,5), K=1, kappa=0.0, mu=0.25, c=1.0, a=2.0, a0=0.0):
         f.write(df.to_latex(index=False, float_format="%.6f",
                             caption="Long-run Markup and Implied Mean Price by Number of Firms",
                             label="tab:longrun_markup"))
-    return df, csv_path, tex_path)
+    return df, csv_path, tex_path
 
 # ---------- Table 3 ----------
 def build_table3(ns=(2,3,4,5), K=1, kappa=0.0, mu=0.25, c=1.0, a=2.0, a0=0.0, theta_eval=0.0):
@@ -187,6 +188,17 @@ def run_kappa_sweep(ns=(2,3,4,5), Ks=(1,2)):
         print("[kappa sweep] skipped (memory_check.py not available or failed):", e)
         return None
 
+# ---------- IR and Markup Plots ----------
+
+def run_irplot_module():
+    print(">> Running platform_attention.irplot …")
+    runpy.run_module("platform_attention.irplot", run_name="__main__")
+
+def run_markup_plot_module():
+    print(">> Running platform_attention.markup_plot …")
+    runpy.run_module("platform_attention.markup_plot", run_name="__main__")
+
+
 # ---------- CLI ----------
 def main():
     p = argparse.ArgumentParser(description="Generate replication outputs")
@@ -194,6 +206,8 @@ def main():
     p.add_argument("--table3", action="store_true", help="Build Table 3 (static pB & pM by n)")
     p.add_argument("--volatility", action="store_true", help="Build profit-gain volatility (no shock vs shock)")
     p.add_argument("--kappa-sweep", action="store_true", help="Run optional kappa* sweep plots")
+    p.add_argument("--irplot", action="store_true", help="Run the converted irplot notebook")
+    p.add_argument("--markup-plot", action="store_true", help="Run the converted markup_plot notebook")
     p.add_argument("--all", action="store_true", help="Run everything")
     args = p.parse_args()
 
@@ -220,6 +234,15 @@ def main():
         print(">> Running kappa sweep …")
         _ = run_kappa_sweep()
         print("kappa sweep complete (plots saved under results/).")
+
+    if args.all or args.irplot:
+        run_irplot_module()
+        print("IR plots complete (plots saved under results/).")
+
+    if args.all or args.markup_plot:
+        run_markup_plot_module()
+        print("Mark-up plots complete (plots saved under results/).")
+
 
 if __name__ == "__main__":
     main()

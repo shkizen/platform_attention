@@ -176,18 +176,6 @@ furnished to do so, subject to the following conditions:
 | **κ Sweep (optional)** | `results/*.pdf` / `.png` | Threshold plots for steering intensity (κ*) |
 
 ---
-
-## 🧭 Versioning
-
-Tag the final replication release before submission:
-
-```bash
-git tag -a v1.0 -m "Replication release"
-git push origin v1.0
-```
-
----
-
 **Author:** Yi-Ting Huang and Asif Khan  
 **Affiliation:** Purdue University  
 **Year:** 2025
